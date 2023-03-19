@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MyFinalProject1</string>
+    <string name="city_name">City Name</string>
+    <string name="temperature">Temperature</string>
+    <string name="wind_speed">Wind speed</string>
+    <string name="description">Description</string>
+    <string name="refresh">refresh</string>
+    <string name="open_map">open Map</string>
+    <string name="open_tuni_fi">Open tuni.fi</string>
+    <string name="weather">Weather</string>
+    <string name="have_a_nice_day">Have a nice day!</string>
+    <string name="hi_tampere">Hi Tampere!</string>
+</resources>
