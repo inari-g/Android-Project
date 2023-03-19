@@ -41,7 +41,6 @@ public class ForecastActivity extends AppCompatActivity {
         // the screen is opening here
         Intent intent = getIntent();
         String cityName = intent.getStringExtra("CITY_NAME");
-        int howManyDays = intent.getIntExtra("HOW_MANY_DAYS", 6);
 
         TextView forecastHeaderTextView = findViewById(R.id.cityTextView);
         if (cityName != null) {
@@ -55,8 +54,7 @@ public class ForecastActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-    // This is an automatic callback from the system called before your activity is destroyed
-    // You can save your ui state here: description, temperature and wind
+    // Save the ui state here: description, temperature, wind and weather icon
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -67,22 +65,19 @@ public class ForecastActivity extends AppCompatActivity {
         outState.putString("IMAGE_URL",imageUrl);
     }
 
-    // This is an optional bundle reading method if you don't want to do it in onCreate
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         // Check if there is a bundle and activity ui data saved
         // If so, read the values from there
         description = savedInstanceState.getString("WEATHER_DESCRIPTION");
-        // Always @NonNull so no need the if statement
-        //      if (savedInstanceState != null) {
         if (description == null) {
             description = "Click to refresh";
         }
         temperature = savedInstanceState.getDouble("TEMPERATURE", 0);
         windSpeed = savedInstanceState.getDouble("WIND", 0);
         image = savedInstanceState.getString("IMAGE");
-        //       }
+
         // Write the values on the UI
         TextView descriptionTextView = findViewById(R.id.descripTextView);
         descriptionTextView.setText(description);

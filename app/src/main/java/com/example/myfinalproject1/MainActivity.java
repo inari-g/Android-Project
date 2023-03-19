@@ -36,15 +36,8 @@ public class MainActivity extends AppCompatActivity {
         String urlString = "https://www.tuni.fi";
         Uri uri = Uri.parse(urlString);
         // Create the implicit intent
-        // Implicit intent == the sys will choose the activity to be used
-        // Explicit intent == the developer choose the activity, e.g. MySecondActivity.class
         Intent openWebPage = new Intent(Intent.ACTION_VIEW, uri);
 
-        // require QUERY_ALL_PACKAGES
-//        if (openWebPage.resolveActivity(getPackageManager())!=null){
-//            ...
-//        }
-        // so we do this instead...
         try {
             startActivity(openWebPage);
         } catch (ActivityNotFoundException e) {
